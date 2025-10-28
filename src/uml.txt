@@ -1,5 +1,4 @@
 @startuml
-
 class Atendimento {
 - Paciente: Paciente
 - Medico: medico
@@ -29,14 +28,14 @@ class HistoricoPaciente {
 - Atendimentos: historico[]
 
 + adicionar(atend: Atendimento)
-+ exibirHistorixo() 
++ exibirHistorico() 
 }
 
 class Medico {
 - IdMedico: int
 
 + getIdMedico()
-+ setIdMedixo()
++ setIdMedico()
 + toString
 }
 
@@ -84,9 +83,11 @@ Vermelho
 
 Atendimento *-- Paciente
 Atendimento *-- Medico
-Fila *-- Paciente
-Pessoa <-- Paciente
-Pessoa <-- Medico
-Paciente --* cor
+Fila *-- Atendimento
+Pessoa <|-- Paciente
+Pessoa <|-- Medico
+Status <|-- Paciente
 
+Fila *-- Menu
+Fila *-- HistoricoPaciente
 @enduml
